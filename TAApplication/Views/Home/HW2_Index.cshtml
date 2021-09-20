@@ -1,0 +1,51 @@
+﻿@page
+@model TAApplication.Views.Home.HW2_IndexModel
+@{
+}
+
+<!--
+Author:    Tyler Allen
+Partner:   Ben Malohi
+Date:      August 28, 2021
+Course:    CS 4540, University of Utah, School of Computing
+Copyright: CS 4540 and Tyler Allen, Ben Malohi - This work may not be copied for use in Academic Coursework.
+We, Tyler Allen and Ben Malohi, certify that we wrote this code from scratch and did not copy it in part or whole from
+another source.  Any references used in the completion of the assignment are cited in my README file.
+File Contents
+An example application page for TA applicants. Includes the name/uID, a picture, and basic information about them.
+-->
+
+<meta name="Tyler Allen, Ben Malohi" content="TA Application Page" />
+
+<div id="applicant_name">
+    <h1>Application for: Bob Joe</h1>
+
+</div>
+<div class="default_header">
+    <img class="center_image" id="applicant_photo" src="~/images/bobjoe.jpg" style="width: 250px; height: 250px;" alt="Profile Picture" />
+</div>
+<div id="main_info">
+    <ul class="infolist">
+        <li>uID: u4441123</li>
+        <li>Contact: bob@joe.com</li>
+        <li>Phone: 808-0088-8800</li>
+        <li><a href="https://linkedin.com/">LinkedIn</a></li>
+        <li>Resume: <a href="~/images/bobjoeresume.png">Link</a></li>
+        <li id="applicant_personal_statement">Personal statement: When I was young, I used to ride horses like cowboys do. Frankly, I still do. Yee Haw.</li>
+        <li id="applicant_interested_courses">
+            Courses Interested In: <ul>
+                <li>CS3500</li>
+                <li>CS3505</li>
+                <li>CS4540</li>
+            </ul>
+        </li>
+        <li id="applicant_previous_rols">
+            Previous TA Roles: <ul>
+                <li>CS1410</li>
+                <li>CS2420</li>
+            </ul>
+        </li>
+        <li id="applicant_school_year">Year in School: 3</li>
+        <li>GPA: 3.0</li>
+    </ul>
+</div>
