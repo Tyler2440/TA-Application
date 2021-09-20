@@ -24,11 +24,6 @@ namespace TAApplication.Data
             return View(await _context.Applications.ToListAsync());
         }
 
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
-
         public IActionResult List()
         {
             return View();

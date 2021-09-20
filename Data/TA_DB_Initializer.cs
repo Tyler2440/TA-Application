@@ -20,7 +20,7 @@ namespace TAApplication.Data
 
             var applications = new Application[]
             {
-            new Application{FirstName="Carson",LastName="Alexander",ID=1234567,PhoneNumber="000-000-0001",Address="123 Joy St. Salt Lake City, Utah 812345",
+            new Application{FirstName="Bob",LastName="Joe",ID=1234567,PhoneNumber="000-000-0001",Address="123 Joy St. Salt Lake City, Utah 812345",
                 CurrentDegree="Computer Science",CurrentProgram="BS", GPA=4.0, NumberHours=12,PersonalStatement="Hey there.", 
                 fluency = Application.EnglishFluency.Native, SemestersCompleted=4, LinkedInURL="www.linkedin.com", ResumeFile="blank", 
                 CreationDate=DateTime.Parse("2005-09-01"), ModificationDate=DateTime.Parse("2021-09-20")},
