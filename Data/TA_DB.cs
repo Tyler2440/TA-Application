@@ -14,5 +14,10 @@ namespace TAApplication.Data
         }
 
         public DbSet<Application> Applications { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Application>().ToTable("Application");
+        }
     }
 }

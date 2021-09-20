@@ -24,6 +24,21 @@ namespace TAApplication.Data
             return View(await _context.Applications.ToListAsync());
         }
 
+        //public IActionResult Index()
+        //{
+        //    return View();
+        //}
+
+        public IActionResult List()
+        {
+            return View();
+        }
+
+        public IActionResult Edit()
+        {
+            return View();
+        }
+
         // GET: Applications/Details/5
         public async Task<IActionResult> Details(int? id)
         {
