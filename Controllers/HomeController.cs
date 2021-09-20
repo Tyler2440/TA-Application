@@ -18,6 +18,21 @@ namespace TAApplication.Controllers
             _logger = logger;
         }
 
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult List()
+        {
+            return View();
+        }
+
+        public IActionResult Edit()
+        {
+            return View();
+        }
+
         public IActionResult HW1_Application()
         {
             return View();
@@ -29,11 +44,6 @@ namespace TAApplication.Controllers
         }
 
         public IActionResult HW2_Index()
-        {
-            return View();
-        }
-
-        public IActionResult Index()
         {
             return View();
         }
