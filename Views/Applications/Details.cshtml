@@ -21,8 +21,8 @@ An example application page for TA applicants. Includes the name/uID, a picture,
 
 </div>
 
-<div class="default_header">
-    <img class="center_image" id="applicant_photo" src="~/images/bobjoe.jpg" style="width: 250px; height: 250px;" alt="Picture of Applicant" />
+<div class="default_header, text-center">
+    <img id="applicant_photo" src="~/images/bobjoe.jpg" style="width: 250px; height: 250px;" alt="Picture of Applicant" />
 </div>
 
 <div id="main_info">
@@ -123,10 +123,53 @@ An example application page for TA applicants. Includes the name/uID, a picture,
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.ModificationDate)
         </dd>
+        <!--
+            <dd class="col-sm-10 border-dark">
+                <form methods="post" class="float-right" enctype="multipart/form-data" asp-controller="Home" asp-action="FileUpload"
+                      onsubmit="AJAXSubmit(this); return false;" action="../Controllers/HomeController">
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <p>Upload your resume file:</p>
+                            <input type="file" name="files" />
+                            <input type="hidden" name="id" value="@Model.ID" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <input class="btn" type="submit" value="Upload" />
+                        </div>
+                    </div>
+                </form>
+            </dd>-->
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a>  |
-    <a asp-action="Delete" asp-route-id="@Model.ID">Delete</a> |
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a>
     <a asp-action="Index">Back to List</a>
 </div>
+
+<!--
+<script>
+    async function AJAXSubmit(oFormElement) {
+        const formData = new FormData(oFormElement);
+        try {
+            const response = await fetch(oFormElement.action, {
+                method: 'POST',
+                body: formData
+            });
+
+            data = await response.json();
+            if (response.ok) {
+                $("#response").html("It Worked! " + data.count + data.message);
+                $("#response").append(`<img class="small" src="uploads/${data.message}"/>`);
+            }
+            else {
+                $("#response").html("Error: " + data.message);
+            }
+        }
+        catch (error) {
+            $("#reponse").html("Error: " + error);
+            console.log('Error:', error);
+        }
+    }
+</script>-->
