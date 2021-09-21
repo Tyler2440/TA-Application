@@ -104,3 +104,7 @@ body {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+#list_table{
+    background-color: red;
+}
