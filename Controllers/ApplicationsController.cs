@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using TAApplication.Data;
 using TAApplication.Models;
 
-namespace TAApplication.Data
+namespace TAApplication.Controllers
 {
     public class ApplicationsController : Controller
     {
@@ -24,14 +25,9 @@ namespace TAApplication.Data
             return View(await _context.Applications.ToListAsync());
         }
 
-        public IActionResult List()
+        public async Task<IActionResult> List()
         {
-            return View();
-        }
-
-        public IActionResult Edit()
-        {
-            return View();
+            return View(await _context.Applications.ToListAsync());
         }
 
         // GET: Applications/Details/5
@@ -93,36 +89,35 @@ namespace TAApplication.Data
         // POST: Applications/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FirstName,LastName,ID,PhoneNumber,Address,CurrentDegree,CurrentProgram,GPA,NumberHours,PersonalStatement,SemestersCompleted,LinkedInURL,ResumeFile,CreationDate,ModificationDate")] Application application)
+        public async Task<IActionResult> EditPost(int id, [Bind("FirstName,LastName,ID,PhoneNumber,Address,CurrentDegree,CurrentProgram,GPA,NumberHours,PersonalStatement,SemestersCompleted,LinkedInURL,ResumeFile,CreationDate,ModificationDate")] Application application)
         {
             if (id != application.ID)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            var applicationToUpdate = await _context.Applications.FirstOrDefaultAsync(s => s.ID == id);
+            if (await TryUpdateModelAsync<Application>(
+                    applicationToUpdate, "", s => s.FirstName, s => s.LastName, s => s.CreationDate))
             {
-                try
+                if (ModelState.IsValid)
                 {
-                    _context.Update(application);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ApplicationExists(application.ID))
+                    try
                     {
-                        return NotFound();
+                        await _context.SaveChangesAsync();
+                        return RedirectToAction(nameof(Index));
                     }
-                    else
+                    catch (DbUpdateException)
                     {
-                        throw;
+                        ModelState.AddModelError("", "Unable to save changes. " +
+                        "Try again, and if the problem persists, " +
+                        "see your system administrator.");
                     }
                 }
-                return RedirectToAction(nameof(Index));
             }
-            return View(application);
+            return View(applicationToUpdate);
         }
 
         // GET: Applications/Delete/5

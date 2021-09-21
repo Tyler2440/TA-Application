@@ -1,5 +1,4 @@
-﻿@page
-@model TAApplication.Models.Application
+﻿@model TAApplication.Models.Application
 @{
     ViewData["Title"] = "Details";
 }
@@ -18,7 +17,7 @@ An example application page for TA applicants. Includes the name/uID, a picture,
 <meta name="Tyler Allen, Ben Malohi" content="TA Application Page" />
 
 <div id="applicant_name">
-    <h1>Application for: @Html.DisplayNameFor(model => model.FirstName) @Html.DisplayNameFor(model => model.LastName) </h1>
+    <h1>Application for: @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName) </h1>
 
 </div>
 
@@ -39,6 +38,12 @@ An example application page for TA applicants. Includes the name/uID, a picture,
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.uID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.uID)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.PhoneNumber)
@@ -121,7 +126,7 @@ An example application page for TA applicants. Includes the name/uID, a picture,
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a>  |
     <a asp-action="Delete" asp-route-id="@Model.ID">Delete</a> |
     <a asp-action="Index">Back to List</a>
 </div>
