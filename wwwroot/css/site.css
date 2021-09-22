@@ -61,6 +61,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  margin-left: auto;
 }
 .footer {
   position: absolute;
@@ -103,4 +104,42 @@ body {
 /*Changes the style of the dropdown content of a dropdown when hovered to a block display*/
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+th {
+    background-color: red;
+    color: white;
+    text-align: center;
+    border-bottom: .5px solid grey;
+}
+
+td {
+    width: auto;
+    white-space: nowrap;
+    text-align: center;
+    border-bottom: .5px solid grey;
+}
+
+tr:nth-child(even){
+    background-color: lightgray;
+}
+
+td.fitwidth {
+    width: 0%;
+}
+
+input[type=submit] {
+    width: auto;
+    height: auto;
+    background: red;
+    color: white;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-left: -15px;
+}
+
+input[type=submit]:hover {
+     background: #800000
 }

@@ -28,7 +28,7 @@ namespace TAApplication.Data
             new Application{FirstName="Ben",LastName="Malohi",uID="1234568",PhoneNumber="489-138-4563",Address="124 Joy St. Salt Lake City, Utah 812345",
                 CurrentDegree="Computer Science",CurrentProgram="BS", GPA=1.0, NumberHours=3,PersonalStatement="My nam is Ben.", 
                 fluency = Application.EnglishFluency.None, SemestersCompleted=6, LinkedInURL="www.linkedin.com", ResumeFile="blank", 
-                ApplicantPhoto="blank", CreationDate=DateTime.Parse("2021-09-19"), ModificationDate=DateTime.Parse("2021-09-20")},
+                CreationDate=DateTime.Parse("2021-09-19"), ModificationDate=DateTime.Parse("2021-09-20")},
 
             new Application{FirstName="Tyler",LastName="Allen",uID="1234569",PhoneNumber="765-799-8945",Address="125 Joy St. Salt Lake City, Utah 812345",
                 CurrentDegree="Computer Science",CurrentProgram="BS", GPA=4.0, NumberHours=12,PersonalStatement="I like helping people.", 

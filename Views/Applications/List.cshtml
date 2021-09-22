@@ -2,16 +2,16 @@
 @{
     ViewData["Title"] = "List";
 }
-<div>
-    <h1>Applicants List</h1>
-
+<div style="margin: 0px 0px 0px -350px">
+    <h1 >Applicants List</h1>
     <p>
         <a asp-action="Create">Create New</a>
     </p>
+</div>
 
-    <table class="table" id="list_table" style="margin-left: auto; margin-right: auto;">
+    <table class="table" id="list_table" style="margin: 0px 0px 0px -350px;">
         <!--Table headers-->
-        <thead>
+        <thead style="display: table-header-group">
             <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.FirstName)
@@ -41,7 +41,7 @@
                     @Html.DisplayNameFor(model => model.NumberHours)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.SemestersCompleted)
+                    Semesters Completed
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.LinkedInURL)
@@ -50,23 +50,20 @@
                     @Html.DisplayNameFor(model => model.ResumeFile)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.ApplicantPhoto)
-                </th>
-                <th>
                     @Html.DisplayNameFor(model => model.CreationDate)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.ModificationDate)
                 </th>
-                <th></th>
+                <th>Advanced</th>
             </tr>
         </thead>
-        <!-- All of the content within the table-->
-        <tbody style="width:fit-content()">
 
+        <!-- All of the content within the table-->
+        <tbody>
             @foreach (var item in Model)
             {
-                <tr>
+                <tr style="margin: auto;">
                     <td>
                         @Html.DisplayFor(modelItem => item.FirstName)
                     </td>
@@ -79,7 +76,7 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.PhoneNumber)
                     </td>
-                    <td>
+                    <td class="fitwidth">
                         @Html.DisplayFor(modelItem => item.Address)
                     </td>
                     <td>
@@ -94,32 +91,26 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.NumberHours)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PersonalStatement)
-                    </td>
-                    <td>
+                    <td class="fitwidth">
                         @Html.DisplayFor(modelItem => item.SemestersCompleted)
                     </td>
-                    <td>
+                    <td class="fitwidth">
                         @Html.DisplayFor(modelItem => item.LinkedInURL)
                     </td>
-                    <td>
+                    <td class="fitwidth">
                         @Html.DisplayFor(modelItem => item.ResumeFile)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ApplicantPhoto)
-                    </td>
-                    <td>
+                    <td class="fitwidth">
                         @Html.DisplayFor(modelItem => item.CreationDate)
                     </td>
-                    <td>
+                    <td class="fitwidth">
                         @Html.DisplayFor(modelItem => item.ModificationDate)
                     </td>
                     <td>
                         <a asp-action="Details" asp-route-id="@item.ID">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
-</div>

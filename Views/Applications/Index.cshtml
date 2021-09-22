@@ -7,7 +7,7 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table id="ApplicantOverview" class="table">
     <thead>
         <tr>
             <th>
@@ -28,23 +28,29 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreationDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GPA)
-            </td>
-            <td>
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a>
-            </td>
-        </tr>
+            <tr>
+                <td class="fitwidth">
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreationDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GPA)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a>
+                </td>
+            </tr>
         }
     </tbody>
+    <tfoot>
+        <tr>
+            <td id="numApplicants" colspan="1">Total Number of Applicants: <script>document.write(document.getElementById('ApplicantOverview').getElementsByTagName('tr').length - 2)</script></td>
+        </tr>
+    </tfoot>
 </table>
+

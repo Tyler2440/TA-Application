@@ -91,16 +91,17 @@ namespace TAApplication.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditPost(int id, [Bind("FirstName,LastName,ID,PhoneNumber,Address,CurrentDegree,CurrentProgram,GPA,NumberHours,PersonalStatement,SemestersCompleted,LinkedInURL,ResumeFile,CreationDate,ModificationDate")] Application application)
+        public async Task<IActionResult> EditPost(int? id, [Bind("FirstName,LastName,ID,PhoneNumber,Address,CurrentDegree,CurrentProgram,GPA,NumberHours,PersonalStatement,SemestersCompleted,LinkedInURL,ResumeFile,CreationDate,ModificationDate")] Application application)
         {
-            if (id != application.ID)
+            if (id == null)
             {
                 return NotFound();
             }
 
             var applicationToUpdate = await _context.Applications.FirstOrDefaultAsync(s => s.ID == id);
             if (await TryUpdateModelAsync<Application>(
-                    applicationToUpdate, "", s => s.FirstName, s => s.LastName, s => s.CreationDate))
+                    applicationToUpdate, "", s => s.FirstName, s => s.LastName, s => s.CreationDate, s=>s.Address, s=>s.ApplicantPhoto, s=>s.CreationDate, s=>s.CurrentDegree, s=>s.CurrentProgram,
+                    s=>s.fluency, s=>s.GPA, s=>s.LinkedInURL, s=>s.ModificationDate, s=>s.NumberHours, s=>s.PersonalStatement, s=>s.PhoneNumber, s=>s.ResumeFile, s=>s.SemestersCompleted, s=>s.uID))
             {
                 if (ModelState.IsValid)
                 {
