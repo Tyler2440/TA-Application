@@ -23,37 +23,44 @@ namespace TAApplication.Controllers
             _logger = logger;
         }
 
+        // Displays the HW1_Application page
         public IActionResult HW1_Application()
         {
             return View();
         }
 
+        // Displays the HW2_Edit page
         public IActionResult HW2_Edit()
         {
             return View();
         }
 
+        // Displays the HW2_Index page
         public IActionResult HW2_Index()
         {
             return View();
         }
 
+        // Displays the Privacy page
         public IActionResult Privacy()
         {
             return View();
         }
 
+        // Displays the Index page
         public IActionResult Index()
         {
             return View();
         }
 
+        // Tracks and displays errors
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        // Handles resume/applicant photo upload (RESUME/PHOTO UPLOADS DO NOT WORK)
         [HttpPost]
         public async Task<IActionResult> FileUpload(List<IFormFile> files)
         {

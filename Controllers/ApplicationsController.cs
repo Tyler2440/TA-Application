@@ -19,18 +19,19 @@ namespace TAApplication.Controllers
             _context = context;
         }
 
-        // GET: Applications
+        // Displays the Index page with all of the applicants asynchronously via Applicants.ToListAsync()
         public async Task<IActionResult> Index()
         {
             return View(await _context.Applications.ToListAsync());
         }
 
+        // Displays the List page with all of the applicants asynchronously via Applicants.ToListAsync()
         public async Task<IActionResult> List()
         {
             return View(await _context.Applications.ToListAsync());
         }
 
-        // GET: Applications/Details/5
+        // Displays the Details page for an applicant according to their id in the database. Fetches their application then displays it
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -48,7 +49,7 @@ namespace TAApplication.Controllers
             return View(application);
         }
 
-        // GET: Applications/Create
+        // Displays the Create applicant page
         public IActionResult Create()
         {
             return View();
@@ -59,7 +60,8 @@ namespace TAApplication.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FirstName,LastName,ID,PhoneNumber,Address,CurrentDegree,CurrentProgram,GPA,NumberHours,PersonalStatement,SemestersCompleted,LinkedInURL,ResumeFile,CreationDate,ModificationDate")] Application application)
+        public async Task<IActionResult> Create([Bind("FirstName,LastName,ID,PhoneNumber,Address,CurrentDegree,CurrentProgram,GPA,NumberHours," +
+            "PersonalStatement,SemestersCompleted,LinkedInURL,ResumeFile,CreationDate,ModificationDate")] Application application)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +93,8 @@ namespace TAApplication.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditPost(int? id, [Bind("FirstName,LastName,ID,PhoneNumber,Address,CurrentDegree,CurrentProgram,GPA,NumberHours,PersonalStatement,SemestersCompleted,LinkedInURL,ResumeFile,CreationDate,ModificationDate")] Application application)
+        public async Task<IActionResult> EditPost(int? id, [Bind("FirstName,LastName,ID,PhoneNumber,Address,CurrentDegree,CurrentProgram,GPA,NumberHours," +
+            "PersonalStatement,SemestersCompleted,LinkedInURL,ResumeFile,CreationDate,ModificationDate")] Application application)
         {
             if (id == null)
             {

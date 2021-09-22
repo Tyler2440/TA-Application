@@ -10,6 +10,7 @@ namespace TAApplication.Data
     {
         public static void Initialize(TA_DB context)
         {
+            // Ensures the database has been created
             context.Database.EnsureCreated();
 
             // Look for any applications.
@@ -18,6 +19,7 @@ namespace TAApplication.Data
                 return;   // DB has been seeded
             }
 
+            // Seeds applications list with many different applicants
             var applications = new Application[]
             {
             new Application{FirstName="Bob",LastName="Joe",uID="1234567",PhoneNumber="996-315-5633",Address="123 Joy St. Salt Lake City, Utah 812345",
@@ -66,6 +68,7 @@ namespace TAApplication.Data
                 CreationDate=DateTime.Parse("2015-09-01"), ModificationDate=DateTime.Parse("2021-09-23")},
             };
 
+            // Add each seeded applicant to the database table
             foreach (Application s in applications)
             {
                 context.Applications.Add(s);

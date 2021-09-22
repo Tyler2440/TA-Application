@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TAApplication.Models
 {
+    // Holds property values for each required field in an application
     public class Application
     {
         public string FirstName { get; set; }

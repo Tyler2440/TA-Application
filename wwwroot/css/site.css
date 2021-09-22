@@ -106,6 +106,7 @@ body {
     display: block;
 }
 
+/*Changes the style of table header*/
 th {
     background-color: red;
     color: white;
@@ -113,6 +114,7 @@ th {
     border-bottom: .5px solid grey;
 }
 
+/*Changes the style of table header*/
 td {
     width: auto;
     white-space: nowrap;
@@ -120,14 +122,17 @@ td {
     border-bottom: .5px solid grey;
 }
 
+/*Changes the style of table row, for every nth child it greys out the row*/
 tr:nth-child(even){
     background-color: lightgray;
 }
 
+/*Changes the style of a column labeled fitwidth to 0% width*/
 td.fitwidth {
     width: 0%;
 }
 
+/*Changes the style of input button*/
 input[type=submit] {
     width: auto;
     height: auto;
@@ -140,6 +145,7 @@ input[type=submit] {
     margin-left: -15px;
 }
 
+/*Changes the style of input button when hovered*/
 input[type=submit]:hover {
      background: #800000
 }
