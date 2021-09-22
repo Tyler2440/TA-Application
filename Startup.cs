@@ -26,7 +26,7 @@ namespace TAApplication
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<TA_DB>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("TA_DB")));
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
