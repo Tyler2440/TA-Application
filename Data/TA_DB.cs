@@ -9,8 +9,10 @@ namespace TAApplication.Data
         {
         }
 
+        // Represents the database table for all the applications
         public DbSet<Application> Applications { get; set; }
 
+        // Builds the Applications DBSet to the Application table
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Application>().ToTable("Application");

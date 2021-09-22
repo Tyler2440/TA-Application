@@ -48,6 +48,8 @@
     <div class="col-md-8 order-md-1">
         <form asp-action="Edit">
             <h4 class="mb-3">Application Form</h4>
+
+            <!--Controls the FirstName/LastName inputs-->
             <div class="row">
                 <div class="col-md-6 md-3">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -62,8 +64,10 @@
                 </div>
             </div>
 
+            <!--Hides the ID of the applicant-->
             <input type="hidden" asp-for="ID" />
 
+            <!--Controls the uID/PhoneNumber inputs-->
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label asp-for="uID" class="control-label"></label>
@@ -77,6 +81,7 @@
                 </div>
             </div>
 
+            <!--Controls the Address/CurrentDegree inputs-->
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label asp-for="Address" class="control-label"></label>
@@ -90,6 +95,7 @@
                 </div>
             </div>
 
+            <!--Controls the CurrentProgram/GPA inputs-->
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label asp-for="CurrentProgram" class="control-label"></label>
@@ -103,20 +109,21 @@
                 </div>
             </div>
 
+            <!--Controls the NumberHours/PersonalStatement inputs-->
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label asp-for="NumberHours" class="control-label"></label>
                     <input asp-for="NumberHours" class="form-control" />
                     <span asp-validation-for="NumberHours" class="text-danger"></span>
                 </div>
-
-
                 <div class="col-md-6 mb-3">
                     <label asp-for="PersonalStatement" class="control-label"></label>
                     <input asp-for="PersonalStatement" class="form-control" />
                     <span asp-validation-for="PersonalStatement" class="text-danger"></span>
                 </div>
             </div>
+
+            <!--Controls the SemestersCompleted/LinkedInURL inputs-->
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label asp-for="SemestersCompleted" class="control-label"></label>
@@ -129,6 +136,8 @@
                     <span asp-validation-for="LinkedInURL" class="text-danger"></span>
                 </div>
             </div>
+
+            <!--Controls the ResumeFile/ApplicantPhoto inputs-->
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label asp-for="ResumeFile" class="control-label"></label>
@@ -141,6 +150,8 @@
                     <span asp-validation-for="ApplicantPhoto" class="text-danger"></span>
                 </div>
             </div>
+
+            <!--Controls the CreationDate/ModificationDate inputs-->
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label asp-for="CreationDate" class="control-label"></label>
