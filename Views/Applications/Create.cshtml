@@ -3,11 +3,19 @@
 @{
     ViewData["Title"] = "Create";
 }
+<!--
+    This is the page to create a new applicant in the application
+    overview. 
 
+    Authors - Tyler Allen and Ben Malohi
+    Date - September 22, 2021
+
+-->
 <h1>Create</h1>
 
 <h4>Application</h4>
 <hr />
+<!--Creates fields to fill in a form to create a new applicant-->
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
@@ -94,6 +102,7 @@
     </div>
 </div>
 
+<!--Button to take you back to the applicant overview list-->
 <div>
     <a asp-action="Index">Back to List</a>
 </div>

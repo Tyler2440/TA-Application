@@ -2,10 +2,18 @@
 @{
     ViewData["Title"] = "Delete";
 }
+<!--
+    This is the delete page to delete a student off of the
+    applicants list.
 
+    Authors - Tyler Allen and Ben Malohi
+    Date - September 22, 2021
+-->
 <h1>Delete</h1>
 
 <h3>Are you sure you want to delete this?</h3>
+
+<!--Student information that user is about to delete-->
 <div>
     <h4>Application</h4>
     <hr />
@@ -102,6 +110,7 @@
         </dd>
     </dl>
     
+    <!--Delete button and "Back to List" button if user changes mind-->
     <form asp-action="Delete">
         <input type="hidden" asp-for="ID" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |

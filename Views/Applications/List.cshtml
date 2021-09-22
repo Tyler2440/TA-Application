@@ -2,13 +2,21 @@
 @{
     ViewData["Title"] = "List";
 }
+<!--
+    This is the Applicants List page that shows all the details for
+    all the candidates who have applied for the position. 
+
+    Authors - Tyler Allen and Ben Malohi
+    Date - September 22, 2021
+-->
 <div style="margin: 0px 0px 0px -350px">
     <h1 >Applicants List</h1>
+    <!--Create new button to add a new applicant-->
     <p>
         <a asp-action="Create">Create New</a>
     </p>
 </div>
-
+    <!--Full table of candidates-->
     <table class="table" id="list_table" style="margin: 0px 0px 0px -350px;">
         <!--Table headers-->
         <thead style="display: table-header-group">
@@ -106,8 +114,9 @@
                     <td class="fitwidth">
                         @Html.DisplayFor(modelItem => item.ModificationDate)
                     </td>
+                    <!--Details button to view their application and delete button to delete them-->
                     <td>
-                        <a asp-action="Details" asp-route-id="@item.ID">Details</a>
+                        <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
                         <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
                     </td>
                 </tr>

@@ -2,8 +2,18 @@
 @{
     ViewData["Title"] = "Index";
 }
+<!--
+    This is the Applicant Overview page that will give an admin
+    a quick look at all of the applicants who have applied for 
+    the position. They can click for more details on a user to 
+    view their full information. 
+
+    Authors - Tyler Allen and Ben Malohi
+    Date - September 22, 2021
+-->
 <h2 style="margin: auto">Applicant Overview</h2>
 
+<!--Create new button to add applicant to the list-->
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -25,6 +35,7 @@
             <th></th>
         </tr>
     </thead>
+    <!--Pulls the information for each user and adds to table-->
     <tbody>
         @foreach (var item in Model)
         {
@@ -47,6 +58,7 @@
             </tr>
         }
     </tbody>
+    <!--Keeps track of the number of applicants total-->
     <tfoot>
         <tr>
             <td id="numApplicants" colspan="1">Total Number of Applicants: <script>document.write(document.getElementById('ApplicantOverview').getElementsByTagName('tr').length - 2)</script></td>
