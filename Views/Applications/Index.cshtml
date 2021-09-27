@@ -2,14 +2,18 @@
 @{
     ViewData["Title"] = "Index";
 }
-<!--
-    This is the Applicant Overview page that will give an admin
-    a quick look at all of the applicants who have applied for 
-    the position. They can click for more details on a user to 
-    view their full information. 
 
-    Authors - Tyler Allen and Ben Malohi
-    Date - September 22, 2021
+<!--
+Author:    Tyler Allen
+Partner:   Ben Malohi
+Date:      September 27, 2021
+Course:    CS 4540, University of Utah, School of Computing
+Copyright: CS 4540 and Tyler Allen, Ben Malohi - This work may not be copied for use in Academic Coursework.
+We, Tyler Allen and Ben Malohi, certify that we wrote this code from scratch and did not copy it in part or whole from
+another source.  Any references used in the completion of the assignment are cited in my README file.
+File Contents
+This is the Applicant Overview page that will give an admin a quick look at all of the applicants who have applied for the position. 
+    They can click for more details on a user to view their full information.
 -->
 <h2 style="margin: auto">Applicant Overview</h2>
 
@@ -61,7 +65,10 @@
     <!--Keeps track of the number of applicants total-->
     <tfoot>
         <tr>
-            <td id="numApplicants" colspan="1">Total Number of Applicants: <script>document.write(document.getElementById('ApplicantOverview').getElementsByTagName('tr').length - 2)</script></td>
+            <td id="numApplicants" colspan="1">
+                Total Number of Applicants:
+                <script>document.write(document.getElementById('ApplicantOverview').getElementsByTagName('tr').length - 2)</script>
+            </td>
         </tr>
     </tfoot>
 </table>

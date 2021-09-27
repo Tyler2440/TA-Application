@@ -2,12 +2,17 @@
 @{
     ViewData["Title"] = "Delete";
 }
-<!--
-    This is the delete page to delete a student off of the
-    applicants list.
 
-    Authors - Tyler Allen and Ben Malohi
-    Date - September 22, 2021
+<!--
+    Author:    Tyler Allen
+    Partner:   Ben Malohi
+    Date:      September 20, 2021
+    Course:    CS 4540, University of Utah, School of Computing
+    Copyright: CS 4540 and Tyler Allen, Ben Malohi - This work may not be copied for use in Academic Coursework.
+    We, Tyler Allen and Ben Malohi, certify that we wrote this code from scratch and did not copy it in part or whole from
+    another source.  Any references used in the completion of the assignment are cited in my README file.
+    File Contents
+    This is the delete page to delete a student off of the applicants list.
 -->
 <h1>Delete</h1>
 
@@ -109,7 +114,7 @@
             @Html.DisplayFor(model => model.ModificationDate)
         </dd>
     </dl>
-    
+
     <!--Delete button and "Back to List" button if user changes mind-->
     <form asp-action="Delete">
         <input type="hidden" asp-for="ID" />
