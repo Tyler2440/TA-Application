@@ -26,7 +26,7 @@ namespace TAApplication.Models
         [Required][Range(1, 20)]
         public string LastName { get; set; }
         public int ID { get; set; }
-        [Required][Display(Description = "Please use the form u1234567...")][RegularExpression("^[u]{1}[0-9]{7}$)")]
+        [Required][Display(Description = "Please use the form u1234567...")][RegularExpression("^[u]{1}[0-9]{7}$")]
         public string uID { get; set; }
         [Required][Range(1, 10)]
         public string PhoneNumber { get; set; }
