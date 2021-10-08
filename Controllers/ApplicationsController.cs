@@ -82,10 +82,12 @@ namespace TAApplication.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("FirstName,LastName,ID,PhoneNumber,Address,CurrentDegree,CurrentProgram,GPA,NumberHours," +
-            "PersonalStatement,SemestersCompleted,LinkedInURL,ResumeFile,CreationDate,ModificationDate")] Application application)
+            "PersonalStatement,SemestersCompleted,LinkedInURL,ResumeFile,CreationDate,ModificationDate, UserID")] Application application)
         {
             if (ModelState.IsValid)
             {
+                TAUser user = await um.GetUserAsync(User);
+                application.UserID = user.Id;
                 _context.Add(application);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

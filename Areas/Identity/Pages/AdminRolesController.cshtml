@@ -30,6 +30,7 @@
         @{ 
             foreach (var user in UserManager.Users)
             {
+                var id = user.Id;
                 var role = await UserManager.GetRolesAsync(user);
                 <tr>
                     <td>
@@ -37,19 +38,20 @@
                     </td>
                     <td>
                         <div class="custom-control custom-switch">
-                            <input onchange="toggle_role(@user.Id, role, true)" type="checkbox" class="custom-control-input" id=@($"switchAdmin{user.Id}") checked=@role.Contains("Administrator")>
+                            <input onchange="toggle_role('@id', '@role', this.value)" type="checkbox" class="custom-control-input" id=@($"switchAdmin{user.Id}") checked=@role.Contains("Administrator")>
+
                             <label class="custom-control-label" for=@($"switchAdmin{user.Id}")></label>
                         </div>
                     </td>
                     <td>
                         <div class="custom-control custom-switch">
-                            <input onchange="toggle_role(@user.Id, role, true)" type="checkbox" class="custom-control-input" id=@($"switchProfessor{user.Id}") checked="@role.Contains("Professor")">
+                            <input onchange="toggle_role('@id', '@role', @role.Contains("Professor"))" type="checkbox" class="custom-control-input" id=@($"switchProfessor{user.Id}") checked="@role.Contains("Professor")">
                             <label class="custom-control-label" for=@($"switchProfessor{user.Id}")></label>
                         </div>
                     </td>
                     <td>
                         <div class="custom-control custom-switch">
-                            <input onchange="toggle_role(@user.Id, role, true)" type="checkbox" class="custom-control-input" id=@($"switchApplicant{user.Id}") checked="@role.Contains("Applicant")">
+                            <input onchange="toggle_role('@id', '@role', @role.Contains("Applicant"))" type="checkbox" class="custom-control-input" id=@($"switchApplicant{user.Id}") checked="@role.Contains("Applicant")">
                             <label class="custom-control-label" for=@($"switchApplicant{user.Id}")></label>
                         </div>
                     </td>
@@ -58,3 +60,8 @@
         }
     </table>
 </body>
+
+@section Scripts
+{
+    <script src="~/js/ajax.js"></script>
+}

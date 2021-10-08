@@ -48,10 +48,11 @@ namespace TAApplication.Models
         [Required][Range(1, 12)]
         public int SemestersCompleted { get; set; }
         public string LinkedInURL { get; set; }
-        [Required]
         public string ResumeFile { get; set; }
         public string ApplicantPhoto { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime ModificationDate { get; set; }
+        [ScaffoldColumn(scaffold: false)]
+        public string UserID { get; set; }
     }
 }

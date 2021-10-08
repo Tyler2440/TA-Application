@@ -3,11 +3,11 @@
 
 // Write your JavaScript code.
 
+alert("hello");
+
 function toggle_role(userid, role, enable_disable) {
-    //var userid = object.Id;
-    alert('Working!');
     var URL = "/AdminController/OnRolePost";
-    //var DATA = { userid: userid, role: role, enable_disable: enable_disable };
+    var DATA = { userid: userid, role: role, enable_disable: enable_disable };
 
     $.post(URL, DATA)
         .done(function (result) {
