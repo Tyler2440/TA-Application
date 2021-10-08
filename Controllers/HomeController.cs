@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -47,6 +48,7 @@ namespace TAApplication.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         // Displays the Index page
         public IActionResult Index()
         {

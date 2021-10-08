@@ -6,6 +6,7 @@
 @using TAApplication.Areas.Identity.Data
 
 @inject SignInManager<TAUser> SignInManager
+@inject UserManager<TAUser> UserManager
 <!--
 Author:    Tyler Allen
 Partner:   Ben Malohi
@@ -22,12 +23,14 @@ This is the Applicant Overview page that will give an admin a quick look at all 
     bool hasApplication = false;
     double averageGPA = 0;
 
+    var applicant = await UserManager.GetUserAsync(User);
+    if (applicant.uID != null)
+    {
+        hasApplication = true;
+    }
+
     foreach (var user in Model)
     {
-        if (user.uID != null && user.uID != "u0000000")
-        {
-            hasApplication = true;
-        }
         averageGPA += user.GPA;
     }
 
@@ -41,14 +44,14 @@ This is the Applicant Overview page that will give an admin a quick look at all 
     {
         if (hasApplication)
         {
-            <a href="/Applications/Edit/12">Edit your application?</a>
+            <a href="/Applications/Edit/46">Edit your application?</a>
         }
         else
         {
             <a href="/Applications/Create">Want to create an application?</a>
         }
     }
-    else
+    else if (SignInManager.IsSignedIn(User) && User.IsInRole("Administrator"))
     {
         <h2 style="margin: auto">Applicant Overview</h2>
         <!--Create new button to add applicant to the list-->

@@ -1,16 +1,27 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - TAApplication</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/site.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <title>TAApplication</title>
+    <link rel="shortcut icon" type="image/jpg" href="~/images/BlockU_400px.png" />
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/carousel/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.0/examples/carousel/carousel.css" rel="stylesheet">
 </head>
+
 <body>
     <header>
-        <!--Controls the navbar displayed on each web page-->
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TAApplication</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -19,19 +30,19 @@
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                     </li>
                     <div class="dropdown" id="ta_menu">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" style="color:black" asp-area="" asp-controller="Home" asp-action="Index">TA</a>
+                        <a class="nav-link text-light" asp-area="" asp-controller="Applications" asp-action="Index">TA Menu</a>
                     </li>
-                    <!--Displays/controls the TA dropdown menu-->
                     <div class="dropdown-content">
                         <p style="color: black; text-align: left; padding-left: 10px; padding-top: 5px; margin-bottom: auto; font: bolder">Bob Joe</p>
                         <a class="nav-link text-dark" href="/Applications/Index">Applicant Overview</a>
+                        <a class="nav-link text-dark" asp-area="Identity" asp-page="/AdminRolesController">Edit Roles</a>
                         <a class="nav-link text-dark" href="/Applications/List">Application List</a>
                         <a class="nav-link text-dark" href="/Applications/Edit/12">Application Edit</a>
                         <a class="nav-link text-dark" href="/Home/HW1_Application">HW1 Application</a>
@@ -40,10 +51,10 @@
                     </div>
             </div>
             </ul>
-            </div>
-            <partial name="_LoginPartial" />
+            <partial name="_LoginPartial.cshtml" />
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

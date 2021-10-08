@@ -3,16 +3,19 @@
 
 // Write your JavaScript code.
 
-var ChangeEditPage()
-{
-    $.post("/Applications/Edit/", data)
-        .done(function (result) {
-            $("#stats").append(`<li>Completed: data returned ${result.x}</li>`);
-        })
+function toggle_role(userid, role, enable_disable) {
 
-        .fail(function (result) {
-            $("#stats")
-            .append(`<li>Failure: data returned ${result.responseJSON.x}</li>`); $("#customSwitch2").prop("checked", false);
+    var URL = "/AdminController/OnRolePost";
+    var DATA = { userid: userid, role: role, enable_disable: enable_disable };
+
+    $.post(URL, DATA)
+        .done(function (result) {
+            alert('Edit was successful!');
         })
-        .always(function () { console.log("all finished"); });
+        .fail(function (result) {
+            alert('Edit was not successful!');
+        })
+        .always(function () {
+            $("#spinner").hide();
+        });
 }

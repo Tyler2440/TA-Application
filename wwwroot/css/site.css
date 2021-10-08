@@ -1,74 +1,156 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+﻿/*
+    Author: Tyler Allen
+    Partner: Ben Malohi
+    Date: August 28, 2021
+    Course: CS 4540, University of Utah, School of Computing
+    Copyright: CS 4540 and Tyler Allen, Ben Malohi - This work may not be copied for use in Academic Coursework.
 
+    We, Tyler Allen and Ben Malohi, certify that we wrote this code from scratch and did not copy it in part or whole from
+    another source. Any references used in the completion of the assignment are cited in my README file.
+
+    File Contents
+
+    The css that formats and improves the design of the webpages.
+*/
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+.btn-area {
+    color: #ffffff;
+    font-size: 12px;
+    cursor: pointer;
+    border: 0px solid #ffff;
+    width: 12px;
+    height: 12px;
 }
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #0366d6;
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
+
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
 }
+
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
 button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+    font-size: 1rem;
+    line-height: inherit;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-  margin-left: auto;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
+
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+/*Makes the border of default tables/table headers/table rows a solid, 1 px black line*/
+.table .def_table, th, td {
+    border: 1px solid black;
+}
+
+/*Changes the default table's header color, font, and width*/
+.default_table th {
+    background-color: red;
+    color: white;
+    width: 5%;
+    font-size: medium;
+    font-family: ordinal;
+}
+
+.eo {
+    background-color: #d3d3d3;
+}
+
+.default_header {
+    text-align: center;
+}
+
+/*Changes the default search bar to have a grey border*/
+input.def_search {
+    border: 0.5px solid grey;
+}
+
+/*Changes the style of the submit button*/
+button[type=submit] {
+    width: auto;
+    height: auto;
+    background: red;
+    color: white;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+    /*Changes the style of the submit button when hovered*/
+    button[type=submit]:hover {
+        background: #800000
+    }
+
+/*Changes the style of the default dropdown (excluding navbar)*/
+form .dropdown {
+    width: 100px;
+    height: 30px;
+    border: 1px solid grey;
+    display: inline-block;
+    position: relative;
+    float: right;
+}
+
+/*Changes the style of the default dropdown text*/
+form div li {
+    position: relative;
+    margin: -30px 0px 0px 0px;
 }
 
 /*Changes the style of the navbar dropdown*/
@@ -88,64 +170,29 @@ body {
     z-index: 1;
 }
 
-/*Changes the style of an individual list item in a dropdown*/
-.dropdown-content a {
-    display: block;
-    padding: 12px 16px;
-    text-decoration: none;
-    text-align: left;
-}
+    /*Changes the style of an individual list item in a dropdown*/
+    .dropdown-content a {
+        display: block;
+        padding: 12px 16px;
+        text-decoration: none;
+        text-align: left;
+    }
 
-/*Changes the style of the individual list item in a dropdown when hovered*/
-.dropdown-content a:hover {
-    background-color: #808080;
-}
+        /*Changes the style of the individual list item in a dropdown when hovered*/
+        .dropdown-content a:hover {
+            background-color: #808080;
+        }
 
 /*Changes the style of the dropdown content of a dropdown when hovered to a block display*/
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-/*Changes the style of table header*/
-th {
-    background-color: red;
-    color: white;
-    text-align: center;
-    border-bottom: .5px solid grey;
+div.col-md-8 order-md-1 {
+    margin: auto;
 }
 
-/*Changes the style of table header*/
-td {
-    width: auto;
-    white-space: nowrap;
-    text-align: center;
-    border-bottom: .5px solid grey;
-}
-
-/*Changes the style of table row, for every nth child it greys out the row*/
-tr:nth-child(even){
-    background-color: lightgray;
-}
-
-/*Changes the style of a column labeled fitwidth to 0% width*/
-td.fitwidth {
-    width: 0%;
-}
-
-/*Changes the style of input button*/
-input[type=submit] {
-    width: auto;
-    height: auto;
-    background: red;
-    color: white;
-    border: 1px solid grey;
-    border-left: none;
-    cursor: pointer;
-    margin-bottom: 10px;
-    margin-left: -15px;
-}
-
-/*Changes the style of input button when hovered*/
-input[type=submit]:hover {
-     background: #800000
+.interestedcourses_form {
+    height: 200px;
+    font-size: 14pt;
 }
