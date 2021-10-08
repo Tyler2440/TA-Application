@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -23,6 +24,13 @@ namespace TAApplication.Areas.Identity
                 services.AddDefaultIdentity<TAUser>(options => options.SignIn.RequireConfirmedAccount = true)
                     .AddRoles<IdentityRole>()
                     .AddEntityFrameworkStores<TAUsersRolesDB>();
+                
+                services.AddAuthorization(options =>
+                {
+                    options.FallbackPolicy = new AuthorizationPolicyBuilder()
+                        .RequireAuthenticatedUser()
+                        .Build();
+                });
 
                 services.Configure<IdentityOptions>(options =>
                 {

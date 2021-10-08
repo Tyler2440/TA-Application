@@ -13,9 +13,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using TAApplication.Areas.Identity.Data;
 using TAApplication.Data;
 using TAApplication.Models;
 
@@ -24,11 +27,14 @@ namespace TAApplication.Controllers
     public class ApplicationsController : Controller
     {
         private readonly TA_DB _context;
+        private UserManager<TAUser> um;
 
-        public ApplicationsController(TA_DB context)
+        public ApplicationsController(UserManager<TAUser> um, TA_DB context)
         {
+            this.um = um;
             _context = context;
         }
+
 
         // Displays the Index page with all of the applicants asynchronously via Applicants.ToListAsync()
         public async Task<IActionResult> Index()
@@ -36,12 +42,14 @@ namespace TAApplication.Controllers
             return View(await _context.Applications.ToListAsync());
         }
 
+        [Authorize (Roles ="Administrator")]
         // Displays the List page with all of the applicants asynchronously via Applicants.ToListAsync()
         public async Task<IActionResult> List()
         {
             return View(await _context.Applications.ToListAsync());
         }
 
+        [Authorize (Roles = "Administrator, Applicant")]
         // Displays the Details page for an applicant according to their id in the database. Fetches their application then displays it
         public async Task<IActionResult> Details(int? id)
         {
@@ -60,12 +68,14 @@ namespace TAApplication.Controllers
             return View(application);
         }
 
+        [Authorize(Roles = "Administrator, Applicant")]
         // Displays the Create applicant page
         public IActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Roles = "Administrator, Applicant")]
         // POST: Applications/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -83,6 +93,7 @@ namespace TAApplication.Controllers
             return View(application);
         }
 
+        [Authorize(Roles = "Applicant")]
         // GET: Applications/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -91,11 +102,20 @@ namespace TAApplication.Controllers
                 return NotFound();
             }
 
-            var application = await _context.Applications.FindAsync(id);
+            var application = await _context.Applications
+                .FirstOrDefaultAsync(m => m.ID == id);
             if (application == null)
             {
                 return NotFound();
             }
+
+            TAUser user = await um.GetUserAsync(User);
+
+            if (user.uID == application.uID)
+            {                             
+                return View(application);
+            }
+            application = await _context.Applications.FirstOrDefaultAsync(m => m.uID == user.uID);
             return View(application);
         }
 
@@ -135,6 +155,7 @@ namespace TAApplication.Controllers
             return View(applicationToUpdate);
         }
 
+        [Authorize(Roles = "Administrator")]
         // GET: Applications/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

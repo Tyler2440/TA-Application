@@ -2,7 +2,10 @@
 @{
     ViewData["Title"] = "Index";
 }
+@using Microsoft.AspNetCore.Identity
+@using TAApplication.Areas.Identity.Data
 
+@inject SignInManager<TAUser> SignInManager
 <!--
 Author:    Tyler Allen
 Partner:   Ben Malohi
@@ -12,64 +15,78 @@ Copyright: CS 4540 and Tyler Allen, Ben Malohi - This work may not be copied for
 We, Tyler Allen and Ben Malohi, certify that we wrote this code from scratch and did not copy it in part or whole from
 another source.  Any references used in the completion of the assignment are cited in my README file.
 File Contents
-This is the Applicant Overview page that will give an admin a quick look at all of the applicants who have applied for the position. 
+This is the Applicant Overview page that will give an admin a quick look at all of the applicants who have applied for the position.
     They can click for more details on a user to view their full information.
 -->
-<h2 style="margin: auto">Applicant Overview</h2>
+@{
+    bool hasApplication = false;
+    double averageGPA = 0;
 
-<!--Create new button to add applicant to the list-->
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table id="ApplicantOverview" class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreationDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GPA)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <!--Pulls the information for each user and adds to table-->
-    <tbody>
-        @foreach (var item in Model)
+    foreach (var user in Model)
+    {
+        if (user.uID != null && user.uID != "u0000000")
         {
-            <tr>
-                <td class="fitwidth">
-                    @Html.DisplayFor(modelItem => item.FirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CreationDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GPA)
-                </td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.ID">Details</a>
-                </td>
-            </tr>
+            hasApplication = true;
         }
-    </tbody>
-    <!--Keeps track of the number of applicants total-->
-    <tfoot>
-        <tr>
-            <td id="numApplicants" colspan="1">
-                Total Number of Applicants:
-                <script>document.write(document.getElementById('ApplicantOverview').getElementsByTagName('tr').length - 2)</script>
-            </td>
-        </tr>
-    </tfoot>
-</table>
+        averageGPA += user.GPA;
+    }
 
+    averageGPA = averageGPA / Model.ToList().Count;
+
+    if (SignInManager.IsSignedIn(User) && User.IsInRole("Professor"))
+    {
+        <h1>You are not an applicant! Looks like you might be lost...</h1>
+    }
+    else if (SignInManager.IsSignedIn(User) && User.IsInRole("Applicant"))
+    {
+        if (hasApplication)
+        {
+            <a href="/Applications/Edit/12">Edit your application?</a>
+        }
+        else
+        {
+            <a href="/Applications/Create">Want to create an application?</a>
+        }
+    }
+    else
+    {
+        <h2 style="margin: auto">Applicant Overview</h2>
+        <!--Create new button to add applicant to the list-->
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+        <table id="ApplicantOverview" class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <p>Number of Applicants</p>
+                    </th>
+                    <th>
+                        <p>Average GPA</p>
+                    </th>
+
+                </tr>
+            </thead>
+            <!--Pulls the information for each user and adds to table-->
+            <tbody>
+                <tr>
+                    <td>
+                        <p>Model.ToList().Count</p>
+                    </td>
+                    <td>
+                        <p>averageGPA</p>
+                    </td>
+                </tr>
+            </tbody>
+            <!--Keeps track of the number of applicants total-->
+            <tfoot>
+                <tr>
+                    <td id="numApplicants" colspan="1">
+                        Total Number of Applicants:
+                        <script>document.write(document.getElementById('ApplicantOverview').getElementsByTagName('tr').length - 2)</script>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    }
+}

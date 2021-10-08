@@ -14,7 +14,7 @@ namespace TAApplication.Areas.Identity.Data
             context.Database.EnsureCreated();
 
             // Look for any applications.
-            if (rm.Roles.ToList().Count >= 3)
+            if (rm.Roles.ToList().Count >= 3 && um.Users.Count() > 3)
             {
                 return;   // DB has been seeded
             }
@@ -23,7 +23,7 @@ namespace TAApplication.Areas.Identity.Data
             await rm.CreateAsync(new IdentityRole("Professor"));
             await rm.CreateAsync(new IdentityRole("Applicant"));
 
-            TAUser admin = new TAUser { UserName = "admin@utah.edu", Name = "admin", HasApplication = false };
+            TAUser admin = new TAUser { UserName = "admin@utah.edu", Name = "admin", Email = "admin@utah.edu", EmailConfirmed = true, HasApplication = false };
             IdentityResult r1 = um.CreateAsync(admin, "123ABC!@#def").Result;
 
             if (r1.Succeeded)
@@ -31,7 +31,7 @@ namespace TAApplication.Areas.Identity.Data
                 await um.AddToRoleAsync(admin, "Administrator");
             }
 
-            TAUser professor = new TAUser { UserName = "professor@utah.edu", Name = "professor", HasApplication = false };
+            TAUser professor = new TAUser { UserName = "professor@utah.edu", Name = "professor", Email = "professor@utah.edu", EmailConfirmed = true, HasApplication = false };
             IdentityResult r2 = um.CreateAsync(professor, "123ABC!@#def").Result;
 
             if (r2.Succeeded)
@@ -39,7 +39,7 @@ namespace TAApplication.Areas.Identity.Data
                 await um.AddToRoleAsync(professor, "Professor");
             }
 
-            TAUser applicant1 = new TAUser { UserName = "u0000000@utah.edu", Name = "applicant1", HasApplication = false};
+            TAUser applicant1 = new TAUser { UserName = "u0000000@utah.edu", Name = "applicant1", uID = "u0000000", Email = "u0000000@utah.edu", EmailConfirmed = true, HasApplication = false};
             IdentityResult r3 = um.CreateAsync(applicant1, "123ABC!@#def").Result;
 
             if (r3.Succeeded)
@@ -47,7 +47,7 @@ namespace TAApplication.Areas.Identity.Data
                 await um.AddToRoleAsync(applicant1, "Applicant");
             }
 
-            TAUser applicant2 = new TAUser { UserName = "u0000001@utah.edu", Name = "applicant2", HasApplication = true };
+            TAUser applicant2 = new TAUser { UserName = "u0000001@utah.edu", Name = "applicant2", uID = "u0000001", Email = "u0000001@utah.edu", EmailConfirmed = true, HasApplication = true };
             IdentityResult r4 = um.CreateAsync(applicant2, "123ABC!@#def").Result;
 
             if (r4.Succeeded)
@@ -55,7 +55,7 @@ namespace TAApplication.Areas.Identity.Data
                 await um.AddToRoleAsync(applicant2, "Applicant");
             }
 
-            TAUser applicant3 = new TAUser { UserName = "u0000002@utah.edu", Name = "applicant3", HasApplication = true };
+            TAUser applicant3 = new TAUser { UserName = "u0000002@utah.edu", Name = "applicant3", uID = "u0000002", Email = "u0000002@utah.edu", EmailConfirmed = true, HasApplication = true };
             IdentityResult r5 = um.CreateAsync(applicant3, "123ABC!@#def").Result;
 
             if (r5.Succeeded)

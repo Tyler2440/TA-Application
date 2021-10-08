@@ -21,14 +21,14 @@ namespace TAApplication.Models
     // Holds property values for each required field in an application
     public class Application
     {
-        [Required][Range(1,20)]
+        [Required][StringLength(20)]
         public string FirstName { get; set; }
-        [Required][Range(1, 20)]
+        [Required][StringLength(20)]
         public string LastName { get; set; }
         public int ID { get; set; }
-        [Required][Display(Description = "Please use the form u1234567...")][RegularExpression("^[u]{1}[0-9]{7}$")]
+        [Display(Description = "Please use the form u1234567...")][RegularExpression("^[u]{1}[0-9]{7}$")]
         public string uID { get; set; }
-        [Required][Range(1, 10)]
+        [Required][StringLength(12)]
         public string PhoneNumber { get; set; }
         [Required]
         public string Address { get; set; }
@@ -38,14 +38,14 @@ namespace TAApplication.Models
         public string CurrentProgram { get; set; }
         [Required][Range(1, 4)]
         public double GPA { get; set; }
-        [Required][Range(1, 2)]
+        [Required][Range(1, 20)]
         public int NumberHours { get; set; }
-        [Display(Description = "Please input a personal statement in <200 characters...")][Range(1, 200)]
+        [Display(Description = "Please input a personal statement in <200 characters...")][MaxLength(200)]
         public string PersonalStatement { get; set; }        
         public enum EnglishFluency { Native, Fluent, Adequate, Poor, None }
         [Required]
         public EnglishFluency fluency { get; set;}
-        [Required][Range(1, 3)]
+        [Required][Range(1, 12)]
         public int SemestersCompleted { get; set; }
         public string LinkedInURL { get; set; }
         [Required]

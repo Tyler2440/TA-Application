@@ -35,7 +35,6 @@ namespace TAApplication
                     RoleManager<IdentityRole> rm = services.GetRequiredService<RoleManager<IdentityRole>>();
                     var context2 = services.GetRequiredService<TAUsersRolesDB>();
                     await SeedUsersRolesDB.Initialize(rm, um, context2);
-
                 }
                 catch (Exception ex)
                 {

@@ -11,37 +11,37 @@
     <header>
         <!--Controls the navbar displayed on each web page-->
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TAApplication</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <div class="dropdown" id="ta_menu">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" style="color:black" asp-area="" asp-controller="Home" asp-action="Index">TA</a>
-                            </li>
-                        <!--Displays/controls the TA dropdown menu-->
-                            <div class="dropdown-content">
-                                <p style="color: black; text-align: left; padding-left: 10px; padding-top: 5px; margin-bottom: auto; font: bolder">Bob Joe</p>
-                                <a class="nav-link text-dark" href="/Applications/Index">Applicant Overview</a>
-                                <a class="nav-link text-dark" href="/Applications/List">Application List</a>
-                                <a class="nav-link text-dark" href="/Applications/Edit/1">Application Edit</a>
-                                <a class="nav-link text-dark" href="/Home/HW1_Application">HW1 Application</a>
-                                <a class="nav-link text-dark" href="/Home/HW2_Edit">HW2 Application Form</a>
-                                <a class="nav-link text-dark" href="/Home/HW2_Index">HW2 Application</a>
-                            </div>
-                        </div>
-                    </ul>
-                </div>
-            <partial name="_LoginPartial"/>
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TAApplication</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                    </li>
+                    <div class="dropdown" id="ta_menu">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" style="color:black" asp-area="" asp-controller="Home" asp-action="Index">TA</a>
+                    </li>
+                    <!--Displays/controls the TA dropdown menu-->
+                    <div class="dropdown-content">
+                        <p style="color: black; text-align: left; padding-left: 10px; padding-top: 5px; margin-bottom: auto; font: bolder">Bob Joe</p>
+                        <a class="nav-link text-dark" href="/Applications/Index">Applicant Overview</a>
+                        <a class="nav-link text-dark" href="/Applications/List">Application List</a>
+                        <a class="nav-link text-dark" href="/Applications/Edit/12">Application Edit</a>
+                        <a class="nav-link text-dark" href="/Home/HW1_Application">HW1 Application</a>
+                        <a class="nav-link text-dark" href="/Home/HW2_Edit">HW2 Application Form</a>
+                        <a class="nav-link text-dark" href="/Home/HW2_Index">HW2 Application</a>
+                    </div>
+            </div>
+            </ul>
+            </div>
+            <partial name="_LoginPartial" />
         </nav>
     </header>
     <div class="container">

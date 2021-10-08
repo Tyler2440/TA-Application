@@ -2,6 +2,11 @@
 @{
     ViewData["Title"] = "Edit";
 }
+@using Microsoft.AspNetCore.Identity
+@using TAApplication.Areas.Identity.Data
+
+@inject SignInManager<TAUser> SignInManager
+@inject UserManager<TAUser> UserManager
 <!--
     Author:    Tyler Allen
     Partner:   Ben Malohi
@@ -13,6 +18,7 @@
     File Contents
     This is the edit page to edit an applicants info from the application screen.
 -->
+<!--if (UserManager.GetUserAsync(User).Id == TempData.Peek()) {-->
 <h1>
     <!--Header image/text of the page-->
     <div class="container" id="applicant_form">
@@ -175,7 +181,10 @@
         </form>
     </div>
 </div>
-
+<!--}
+else {
+<h1 href="/Home/Index">Looks like you're in the wrong page! Redirect back to the home page.</h1>
+}-->
 <!--Button to take you back to the list page-->
 <div>
     <a asp-action="Index">Back to List</a>
