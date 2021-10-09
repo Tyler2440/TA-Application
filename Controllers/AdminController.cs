@@ -20,7 +20,7 @@ namespace TAApplication.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> OnRolePost(string userid, string role, bool? enable_disable)
+        public async Task<IActionResult> OnPostRole(string userid, string role, bool? enable_disable)
         {
             if (userid == null || role == null || enable_disable == null)
             {

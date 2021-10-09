@@ -1,14 +1,11 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿function toggle_role(userid, role) {
 
-// Write your JavaScript code.
+    var enabled = document.getElementById("" + event.target.dataset.x);
 
-function toggle_role(userid, role, enable_disable) {
-    //var userid = object.Id;
-    alert('Working!');
-    var URL = "/AdminController/OnRolePost";
-    //var DATA = { userid: userid, role: role, enable_disable: enable_disable };
+    var URL = "/Admin/OnPostRole";
+    var DATA = { userid: userid, role: role, enable_disable: enabled.checked};
 
+    alert(enabled.checked);
     $.post(URL, DATA)
         .done(function (result) {
             alert('Edit was successful!');
