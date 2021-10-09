@@ -1,23 +1,9 @@
-﻿/* Contains any javascript functions needed for the TA
- * website
- * 
- * @authors - Tyler Allen and Ben Malohi
- * @date - Octobober 8, 2021
- */
-
-/*
- * Uses sweet alerts when a switch in the roles table is 
- * toggled.
- * 
- * @param userid - 
- * @param role - the role that's being toggled
- */
-function toggle_role(userid, role) {
+﻿function toggle_role(userid, role) {
     var enabled = document.getElementById("" + event.target.dataset.x);
     var URL = "/Admin/OnPost";
     var DATA = { userid: userid, role: role, enable_disable: enabled.checked };
 
-    Swal.fire({ //displays warning message when switch is toggled
+    Swal.fire({
         title: 'Are you sure you want to edit the role?',
         text: "You will be able to revert this later.",
         icon: 'warning',
@@ -30,7 +16,7 @@ function toggle_role(userid, role) {
         if (result.isConfirmed) {
             $.post(URL, DATA)
                 .fail(function (result) {
-                    Swal.fire({ //displays message that switch wasn't changed
+                    Swal.fire({
                         position: 'center',
                         icon: 'error',
                         title: 'Oops...',
@@ -39,7 +25,7 @@ function toggle_role(userid, role) {
                     enabled.checked = !enabled.checked;
                 })
                 .done(function (result) {
-                    Swal.fire({ //displays message that switch changed
+                    Swal.fire({
                         position: 'center',
                         icon: 'success',
                         title: 'Role successfully changed!',

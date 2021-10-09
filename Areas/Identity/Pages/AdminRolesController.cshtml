@@ -8,25 +8,17 @@
 
 @inject SignInManager<TAUser> SignInManager
 @inject UserManager<TAUser> UserManager
-<!--
-    Author:    Tyler Allen
-    Partner:   Ben Malohi
-    Date:      October 8, 2021
-    Course:    CS 4540, University of Utah, School of Computing
-    Copyright: CS 4540 and Tyler Allen, Ben Malohi - This work may not be copied for use in Academic Coursework.
-    We, Tyler Allen and Ben Malohi, certify that we wrote this code from scratch and did not copy it in part or whole from
-    another source.  Any references used in the completion of the assignment are cited in my README file.
-    File Contents
-    This is the page that allows an admin to edit what roles a user has
--->
 <head>
+    <h1></h1>
     <h1>Edit User Roles Below.</h1>
+    <h2></h2>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css%22%3F" />
     <script type="text/javascript" charset="utf-8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js%22%3F"</script>
-    <script type="text/javascript"></script>
+    <script type="text/javascript">
+
+    </script>
 </head>
 <body>
-    <!--Data table for the admins to swtich roles-->
     <table id="datatable" class="table default_table" onload="data_table()">
         <tr>
             <th class="th-sm">Name</th>
@@ -34,8 +26,7 @@
             <th class="th-sm">Professor</th>
             <th class="th-sm">Applicant</th>
         </tr>
-        @{
-            //displays each user and a toggle switch in the table
+        @{ 
             foreach (var user in UserManager.Users)
             {
                 var id = user.Id;
@@ -70,6 +61,6 @@
 
 @section Scripts
 {
-    <script src="~/js/site.js"></script>
+    <script src="~/js/ajax.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 }
