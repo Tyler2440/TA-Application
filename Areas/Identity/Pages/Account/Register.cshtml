@@ -3,9 +3,19 @@
 @{
     ViewData["Title"] = "Register";
 }
-
+<!--
+    Author:    Tyler Allen
+    Partner:   Ben Malohi
+    Date:      October 8, 2022
+    Course:    CS 4540, University of Utah, School of Computing
+    Copyright: CS 4540 and Tyler Allen, Ben Malohi - This work may not be copied for use in Academic Coursework.
+    We, Tyler Allen and Ben Malohi, certify that we wrote this code from scratch and did not copy it in part or whole from
+    another source.  Any references used in the completion of the assignment are cited in my README file.
+    File Contents
+    This is the registration page. The fields you need are your name, uID, email, and a password. 
+-->
 <h1>@ViewData["Title"]</h1>
-
+<!--Displays fields needed to register for an account-->
 <div class="row">
     <div class="col-md-4">
         <form asp-route-returnUrl="@Model.ReturnUrl" method="post">

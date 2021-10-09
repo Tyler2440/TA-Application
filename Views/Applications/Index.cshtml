@@ -8,19 +8,20 @@
 @inject SignInManager<TAUser> SignInManager
 @inject UserManager<TAUser> UserManager
 <!--
-Author:    Tyler Allen
-Partner:   Ben Malohi
-Date:      September 27, 2021
-Course:    CS 4540, University of Utah, School of Computing
-Copyright: CS 4540 and Tyler Allen, Ben Malohi - This work may not be copied for use in Academic Coursework.
-We, Tyler Allen and Ben Malohi, certify that we wrote this code from scratch and did not copy it in part or whole from
-another source.  Any references used in the completion of the assignment are cited in my README file.
-File Contents
-This is the Applicant Overview page that will give an admin a quick look at all of the applicants who have applied for the position.
+    Author:    Tyler Allen
+    Partner:   Ben Malohi
+    Date:      September 27, 2021
+    Course:    CS 4540, University of Utah, School of Computing
+    Copyright: CS 4540 and Tyler Allen, Ben Malohi - This work may not be copied for use in Academic Coursework.
+    We, Tyler Allen and Ben Malohi, certify that we wrote this code from scratch and did not copy it in part or whole from
+    another source.  Any references used in the completion of the assignment are cited in my README file.
+    File Contents
+    This is the Applicant Overview page that will give an admin a quick look at all of the applicants who have applied for the position.
     They can click for more details on a user to view their full information.
 -->
 @{
     bool hasApplication = false;
+    //instantiate average to calculate
     double averageGPA = 0;
 
     var applicant = await UserManager.GetUserAsync(User);
@@ -29,26 +30,26 @@ This is the Applicant Overview page that will give an admin a quick look at all 
         hasApplication = true;
     }
 
-
+    //computes average GPA
     foreach (var user in Model)
     {
         averageGPA += user.GPA;
     }
-
     averageGPA = averageGPA / Model.ToList().Count;
 
+    //checks the roles of the current user and gives certain permissions based on role
     if (SignInManager.IsSignedIn(User) && User.IsInRole("Professor"))
     {
         <h1>You are not an applicant! Looks like you might be lost...</h1>
     }
     else if (SignInManager.IsSignedIn(User) && User.IsInRole("Applicant"))
     {
-        if (hasApplication)
+        if (hasApplication) //prompts to create application if one exists under their account
         {
             <h1></h1>
             <a href="/Applications/Edit/46">Edit your application?</a>
         }
-        else
+        else //prompts to create an application if they don't have one
         {
             <h1></h1>
             <a href="/Applications/Create">Want to create an application?</a>

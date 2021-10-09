@@ -30,6 +30,11 @@ namespace TAApplication
             services.AddDbContext<TA_DB>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("TA_DB")));
 
+            services.AddDefaultIdentity<IdentityUser>(config =>
+            {
+                config.SignIn.RequireConfirmedEmail = true;
+            });
+
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddControllersWithViews();
@@ -55,14 +60,14 @@ namespace TAApplication
 
             app.UseAuthentication();
             app.UseAuthorization();
-            
+
             app.UseEndpoints(endpoints =>
-            {               
+            {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");         
-                endpoints.MapRazorPages();       
-            });            
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
+            });
         }
     }
 }
