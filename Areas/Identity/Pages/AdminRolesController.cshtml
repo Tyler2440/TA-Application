@@ -5,7 +5,6 @@
 
 @using Microsoft.AspNetCore.Identity
 @using TAApplication.Areas.Identity.Data
-@using System.Diagnostics 
 
 @inject SignInManager<TAUser> SignInManager
 @inject UserManager<TAUser> UserManager
@@ -20,7 +19,7 @@
     </script>
 </head>
 <body>
-    <table id="datatable" class="default_table" onload="data_table()">
+    <table id="datatable" class="table default_table" onload="data_table()">
         <tr>
             <th class="th-sm">Name</th>
             <th class="th-sm">Administrator</th>
@@ -39,7 +38,6 @@
                     <td>
                         <div class="custom-control custom-switch">
                             <input onchange="toggle_role('@id', 'Administrator')" data-x=@($"switchAdmin{user.Id}") type="checkbox" class="custom-control-input" id=@($"switchAdmin{user.Id}") checked=@role.Contains("Administrator")>
-
                             <label class="custom-control-label" for=@($"switchAdmin{user.Id}")></label>
                         </div>
                     </td>
@@ -64,4 +62,5 @@
 @section Scripts
 {
     <script src="~/js/ajax.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 }

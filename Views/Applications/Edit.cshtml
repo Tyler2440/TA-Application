@@ -52,6 +52,13 @@
                 <img id="profile_picture_preview_form" src="#" alt="Profile Picture Preview" />
             </form>
         </div>
+        <div class="col-md-5 mb-2">
+            <label for="fluency">English Fluency:</label>
+             <select asp-items="@Html.GetEnumSelectList(typeof(Application.EnglishFluency))">
+
+             </select>
+             
+        </div>
     </div>
 
     <div class="col-md-8 order-md-1">

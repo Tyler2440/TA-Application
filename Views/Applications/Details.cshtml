@@ -21,11 +21,6 @@
 
 </div>
 
-<!--Picture of applicant-->
-<div class="default_header, text-center">
-    <img id="applicant_photo" src="~/images/bobjoe.jpg" style="width: 250px; height: 250px;" alt="Picture of Applicant" />
-</div>
-
 <!--Applicant information-->
 <div id="main_info">
     <dl class="row">
@@ -125,25 +120,28 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.ModificationDate)
         </dd>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.fluency)
+        </dd>
         <!--Commented code here is an attempt for the file upload, save for future assignment-->
         <!--
-            <dd class="col-sm-10 border-dark">
-                <form methods="post" class="float-right" enctype="multipart/form-data" asp-controller="Home" asp-action="FileUpload"
-                      onsubmit="AJAXSubmit(this); return false;" action="../Controllers/HomeController">
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            <p>Upload your resume file:</p>
-                            <input type="file" name="files" />
-                            <input type="hidden" name="id" value="@Model.ID" />
-                        </div>
+        <dd class="col-sm-10 border-dark">
+            <form methods="post" class="float-right" enctype="multipart/form-data" asp-controller="Home" asp-action="FileUpload"
+                  onsubmit="AJAXSubmit(this); return false;" action="../Controllers/HomeController">
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <p>Upload your resume file:</p>
+                        <input type="file" name="files" />
+                        <input type="hidden" name="id" value="@Model.ID" />
                     </div>
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            <input class="btn" type="submit" value="Upload" />
-                        </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input class="btn" type="submit" value="Upload" />
                     </div>
-                </form>
-            </dd>-->
+                </div>
+            </form>
+        </dd>-->
     </dl>
 </div>
 <!--Edit button to change any of the displayed information-->

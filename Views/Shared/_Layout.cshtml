@@ -21,7 +21,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <nav class="navbar py-0 navbar-expand-md navbar-dark fixed-top bg-dark" id="main_navbar">
             <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TAApplication</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -40,14 +40,8 @@
                         <a class="nav-link text-light" asp-area="" asp-controller="Applications" asp-action="Index">TA Menu</a>
                     </li>
                     <div class="dropdown-content">
-                        <p style="color: black; text-align: left; padding-left: 10px; padding-top: 5px; margin-bottom: auto; font: bolder">Bob Joe</p>
-                        <a class="nav-link text-dark" href="/Applications/Index">Applicant Overview</a>
-                        <a class="nav-link text-dark" asp-area="Identity" asp-page="/AdminRolesController">Edit Roles</a>
-                        <a class="nav-link text-dark" href="/Applications/List">Application List</a>
-                        <a class="nav-link text-dark" href="/Applications/Edit/12">Application Edit</a>
-                        <a class="nav-link text-dark" href="/Home/HW1_Application">HW1 Application</a>
-                        <a class="nav-link text-dark" href="/Home/HW2_Edit">HW2 Application Form</a>
-                        <a class="nav-link text-dark" href="/Home/HW2_Index">HW2 Application</a>
+                        <p style="color: black; text-align: left; padding-left: 10px; padding-top: 5px; margin-bottom: auto; font: bolder">Tyler Allen, Ben Malohi</p>
+                        <partial name="/Areas/Identity/Pages/_NavbarChangeOnRole.cshtml" />
                     </div>
             </div>
             </ul>

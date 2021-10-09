@@ -29,6 +29,7 @@ This is the Applicant Overview page that will give an admin a quick look at all 
         hasApplication = true;
     }
 
+
     foreach (var user in Model)
     {
         averageGPA += user.GPA;
@@ -44,10 +45,12 @@ This is the Applicant Overview page that will give an admin a quick look at all 
     {
         if (hasApplication)
         {
+            <h1></h1>
             <a href="/Applications/Edit/46">Edit your application?</a>
         }
         else
         {
+            <h1></h1>
             <a href="/Applications/Create">Want to create an application?</a>
         }
     }
@@ -58,7 +61,7 @@ This is the Applicant Overview page that will give an admin a quick look at all 
         <p>
             <a asp-action="Create">Create New</a>
         </p>
-        <table id="ApplicantOverview" class="table">
+        <table id="ApplicantOverview" class="table default_table">
             <thead>
                 <tr>
                     <th>
@@ -74,22 +77,13 @@ This is the Applicant Overview page that will give an admin a quick look at all 
             <tbody>
                 <tr>
                     <td>
-                        <p>Model.ToList().Count</p>
+                        <p>@Model.ToList().Count</p>
                     </td>
                     <td>
-                        <p>averageGPA</p>
+                        <p>@averageGPA</p>
                     </td>
                 </tr>
             </tbody>
-            <!--Keeps track of the number of applicants total-->
-            <tfoot>
-                <tr>
-                    <td id="numApplicants" colspan="1">
-                        Total Number of Applicants:
-                        <script>document.write(document.getElementById('ApplicantOverview').getElementsByTagName('tr').length - 2)</script>
-                    </td>
-                </tr>
-            </tfoot>
         </table>
     }
 }

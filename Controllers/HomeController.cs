@@ -98,5 +98,25 @@ namespace TAApplication.Controllers
                 return BadRequest(new { message = "Something went wrong. Try again later." });
             }           
         }
+
+        [HttpPost]
+        public IActionResult OnPost(string userid, string role, bool enable_disable)
+        {
+            if (userid == null || role == null)
+            {
+                return BadRequest("Invalid data!");
+            }
+
+            if (enable_disable)
+            {
+                //await um.AddToRoleAsync(await um.FindByIdAsync(userid), role);
+                return Ok(new { message = "Success!" });
+            }
+            else
+                //await um.RemoveFromRoleAsync(await um.FindByIdAsync(userid), role);
+                return BadRequest("Invalid data!");
+
+            //return Ok(new { message = "Success!" });
+        }
     }
 }
