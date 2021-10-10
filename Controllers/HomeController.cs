@@ -24,24 +24,6 @@ namespace TAApplication.Controllers
             _logger = logger;
         }
 
-        // Displays the HW1_Application page
-        public IActionResult HW1_Application()
-        {
-            return View();
-        }
-
-        // Displays the HW2_Edit page
-        public IActionResult HW2_Edit()
-        {
-            return View();
-        }
-
-        // Displays the HW2_Index page
-        public IActionResult HW2_Index()
-        {
-            return View();
-        }
-
         // Displays the Privacy page
         public IActionResult Privacy()
         {

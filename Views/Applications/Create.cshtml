@@ -6,13 +6,13 @@
 <!--
     Author:    Tyler Allen
     Partner:   Ben Malohi
-    Date:      September 20, 2021
+    Date:      October 10, 2021
     Course:    CS 4540, University of Utah, School of Computing
     Copyright: CS 4540 and Tyler Allen, Ben Malohi - This work may not be copied for use in Academic Coursework.
     We, Tyler Allen and Ben Malohi, certify that we wrote this code from scratch and did not copy it in part or whole from
     another source.  Any references used in the completion of the assignment are cited in my README file.
     File Contents
-    This is the page to create a new applicant in the application overview.
+    This page has fields where the user can create an application.
 -->
 <h1>Create</h1>
 
@@ -97,6 +97,11 @@
                 <label asp-for="ModificationDate" class="control-label"></label>
                 <input asp-for="ModificationDate" class="form-control" />
                 <span asp-validation-for="ModificationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="fluency">English Fluency:</label>
+                <select asp-items="@Html.GetEnumSelectList(typeof(Application.EnglishFluency))">
+                </select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

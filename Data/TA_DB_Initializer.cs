@@ -33,9 +33,6 @@ namespace TAApplication.Data
             // Seeds applications list with many different applicants
             var applications = new Application[]
             {
-            new Application{FirstName="u0",LastName="u0", GPA = 0.0, NumberHours = 0, fluency = Application.EnglishFluency.Native, SemestersCompleted = 0,
-            CreationDate=DateTime.Parse("2005-09-01"), ModificationDate=DateTime.Parse("2021-09-20"), UserID="1748ca00-27d0-4d16-8899-e1792cf5f347"},
-
             new Application{FirstName="u1",LastName="u1",uID="u0000001",PhoneNumber="996-315-5633",Address="123 Joy St. Salt Lake City, Utah 812345",
             CurrentDegree="Computer Science",CurrentProgram="BS", GPA=4.0, NumberHours=12,PersonalStatement="Hey there.",
             fluency = Application.EnglishFluency.Native, SemestersCompleted=4, LinkedInURL="www.linkedin.com", ResumeFile="blank",

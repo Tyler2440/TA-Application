@@ -65,6 +65,13 @@ namespace TAApplication.Controllers
                 return NotFound();
             }
 
+            TAUser user = await um.GetUserAsync(User);
+
+            if (user.uID == application.uID)
+            {
+                return View(application);
+            }
+            application = await _context.Applications.FirstOrDefaultAsync(m => m.uID == user.uID);
             return View(application);
         }
 

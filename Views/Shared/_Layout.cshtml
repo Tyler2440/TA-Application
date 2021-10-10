@@ -1,5 +1,16 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+<!--
+    Author:    Tyler Allen
+    Partner:   Ben Malohi
+    Date:      October 10, 2021
+    Course:    CS 4540, University of Utah, School of Computing
+    Copyright: CS 4540 and Tyler Allen, Ben Malohi - This work may not be copied for use in Academic Coursework.
+    We, Tyler Allen and Ben Malohi, certify that we wrote this code from scratch and did not copy it in part or whole from
+    another source.  Any references used in the completion of the assignment are cited in my README file.
+    File Contents
+    This page controls the contents displayed on all pages of the website.
+-->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -36,16 +47,16 @@
                         <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                     </li>
                     <div class="dropdown" id="ta_menu">
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Applications" asp-action="Index">TA Menu</a>
-                        </li>
-                        <div class="dropdown-content">
-                            <p style="color: black; text-align: left; padding-left: 10px; padding-top: 5px; margin-bottom: auto; font: bolder">Tyler Allen, Ben Malohi</p>
-                            <partial name="/Areas/Identity/Pages/_NavbarChangeOnRole.cshtml" />
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" asp-area="" asp-controller="Applications" asp-action="Index">TA Menu</a>
+                    </li>
+                    <div class="dropdown-content">
+                        <p style="color: black; text-align: left; padding-left: 10px; padding-top: 5px; margin-bottom: auto; font: bolder">Tyler Allen, Ben Malohi</p>
+                        <partial name="/Areas/Identity/Pages/_NavbarChangeOnRole.cshtml" />
                     </div>
+            </div>
             </ul>
-                <partial name="_LoginPartial.cshtml" />
+            <partial name="_LoginPartial.cshtml" />
         </nav>
     </header>
 
