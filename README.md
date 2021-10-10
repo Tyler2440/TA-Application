@@ -9,7 +9,7 @@ Deployed URL: ec2-18-204-208-247.compute-1.amazonaws.com (Tyler) Github Page: ht
 
 Comments to Evaluators:
 
-	N/A
+	There are two blank named users in the Edit Roles page because they were test users we added to make sure adding users worked.
 
 Assignment Specific Write-up:
 
