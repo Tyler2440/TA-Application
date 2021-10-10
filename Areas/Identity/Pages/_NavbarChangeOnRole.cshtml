@@ -2,37 +2,25 @@
 @using TAApplication.Areas.Identity.Data
 
 @inject UserManager<TAUser> UserManager
-    <!--
-        Author:    Tyler Allen
-        Partner:   Ben Malohi
-        Date:      September 27, 2021
-        Course:    CS 4540, University of Utah, School of Computing
-        Copyright: CS 4540 and Tyler Allen, Ben Malohi - This work may not be copied for use in Academic Coursework.
-        We, Tyler Allen and Ben Malohi, certify that we wrote this code from scratch and did not copy it in part or whole from
-        another source.  Any references used in the completion of the assignment are cited in my README file.
-        File Contents
-        This changes what is displayed in the navbar depending on what role the signed-in user is assigned
-    -->
-    @{
-        var user = await UserManager.GetUserAsync(User);
-        //gives the user different options depending on their role
-        if (user != null)
+@{
+    var user = await UserManager.GetUserAsync(User);
+    if (user != null)
+    {
+        if (UserManager.IsInRoleAsync(user, "Administrator").Result)
         {
-            if (UserManager.IsInRoleAsync(user, "Administrator").Result)
-            {
-                <a class="nav-link text-dark" href="/Applications/Index">Applicant Overview</a>
-                <a class="nav-link text-dark" href="/Applications/List">Application List</a>
-                <a class="nav-link text-dark" asp-area="Identity" asp-page="/AdminRolesController">Edit Roles</a>
-            }
-            else if (UserManager.IsInRoleAsync(user, "Professor").Result)
-            {
-                <a class="nav-link text-dark" href="/Applications/Index">Applicant Overview</a>
-            }
-            else if (UserManager.IsInRoleAsync(user, "Applicant").Result)
-            {
-                <a class="nav-link text-dark" href="/Applications/Index">Applicant Overview</a>
-                <a class="nav-link text-dark" href="/Applications/Details/59">u0000001 Details</a>
-                <a class="nav-link text-dark" href="/Applications/Edit/59">u0000001 Edit</a>
+        <a class="nav-link text-dark" href="/Applications/Index">Applicant Overview</a>
+        <a class="nav-link text-dark" href="/Applications/List">Application List</a>
+        <a class="nav-link text-dark" asp-area="Identity" asp-page="/AdminRolesController">Edit Roles</a>
+        }
+        else if (UserManager.IsInRoleAsync(user, "Professor").Result)
+        {
+        <a class="nav-link text-dark" href="/Applications/Index">Applicant Overview</a>
+        }
+        else if (UserManager.IsInRoleAsync(user, "Applicant").Result)
+        {
+        <a class="nav-link text-dark" href="/Applications/Index">Applicant Overview</a>
+        <a class="nav-link text-dark" href="/Applications/Details/59">u0000001 Details</a>
+        <a class="nav-link text-dark" href="/Applications/Edit/59">u0000001 Edit</a>
             }
         }
     }
