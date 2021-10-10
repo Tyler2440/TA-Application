@@ -30,10 +30,10 @@ namespace TAApplication
             services.AddDbContext<TA_DB>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("TA_DB")));
 
-            services.AddDefaultIdentity<IdentityUser>(config =>
-            {
-                config.SignIn.RequireConfirmedEmail = true;
-            });
+            //services.AddDefaultIdentity<IdentityUser>(config =>
+            //{
+            //    config.SignIn.RequireConfirmedEmail = true;
+            //});
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 

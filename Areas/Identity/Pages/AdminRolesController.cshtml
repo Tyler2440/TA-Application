@@ -21,55 +21,59 @@
 -->
 <head>
     <h1>Edit User Roles Below.</h1>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css%22%3F" />
-    <script type="text/javascript" charset="utf-8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js%22%3F"</script>
-    <script type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
 </head>
 <body>
     <!--Data table for the admins to swtich roles-->
-    <table id="datatable" class="table default_table" onload="data_table()">
-        <tr>
-            <th class="th-sm">Name</th>
-            <th class="th-sm">Administrator</th>
-            <th class="th-sm">Professor</th>
-            <th class="th-sm">Applicant</th>
-        </tr>
-        @{
-            //displays each user and a toggle switch in the table
-            foreach (var user in UserManager.Users)
-            {
-                var id = user.Id;
-                var role = await UserManager.GetRolesAsync(user);
-                <tr>
-                    <td>
-                        <p>@user.Name</p>
-                    </td>
-                    <td>
-                        <div class="custom-control custom-switch">
-                            <input onchange="toggle_role('@id', 'Administrator')" data-x=@($"switchAdmin{user.Id}") type="checkbox" class="custom-control-input" id=@($"switchAdmin{user.Id}") checked=@role.Contains("Administrator")>
-                            <label class="custom-control-label" for=@($"switchAdmin{user.Id}")></label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="custom-control custom-switch">
-                            <input onchange="toggle_role('@id', 'Professor')" data-x=@($"switchProfessor{user.Id}") type="checkbox" class="custom-control-input" id=@($"switchProfessor{user.Id}") checked="@role.Contains("Professor")">
-                            <label class="custom-control-label" for=@($"switchProfessor{user.Id}")></label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="custom-control custom-switch">
-                            <input onchange="toggle_role('@id', 'Applicant')" data-x=@($"switchApplicant{user.Id}") type="checkbox" class="custom-control-input" id=@($"switchApplicant{user.Id}") checked="@role.Contains("Applicant")">
-                            <label class="custom-control-label" for=@($"switchApplicant{user.Id}")></label>
-                        </div>
-                    </td>
-                </tr>
+    <table id="roletable" class="table display" onload="data_table()">
+        <thead>
+            <tr>
+                <th class="th-sm">Name</th>
+                <th class="th-sm">Administrator</th>
+                <th class="th-sm">Professor</th>
+                <th class="th-sm">Applicant</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                //displays each user and a toggle switch in the table
+                foreach (var user in UserManager.Users)
+                {
+                    var id = user.Id;
+                    var role = await UserManager.GetRolesAsync(user);
+                    <tr>
+                        <td>
+                            <p>@user.Name</p>
+                        </td>
+                        <td>
+                            <div class="custom-control custom-switch">
+                                <input onchange="toggle_role('@id', 'Administrator')" data-x=@($"switchAdmin{user.Id}") type="checkbox" class="custom-control-input" id=@($"switchAdmin{user.Id}") checked=@role.Contains("Administrator")>
+                                <label class="custom-control-label" for=@($"switchAdmin{user.Id}")></label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="custom-control custom-switch">
+                                <input onchange="toggle_role('@id', 'Professor')" data-x=@($"switchProfessor{user.Id}") type="checkbox" class="custom-control-input" id=@($"switchProfessor{user.Id}") checked="@role.Contains("Professor")">
+                                <label class="custom-control-label" for=@($"switchProfessor{user.Id}")></label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="custom-control custom-switch">
+                                <input onchange="toggle_role('@id', 'Applicant')" data-x=@($"switchApplicant{user.Id}") type="checkbox" class="custom-control-input" id=@($"switchApplicant{user.Id}") checked="@role.Contains("Applicant")">
+                                <label class="custom-control-label" for=@($"switchApplicant{user.Id}")></label>
+                            </div>
+                        </td>
+                    </tr>
+                }
             }
-        }
+        </tbody>
     </table>
 </body>
 
 @section Scripts
 {
-    <script src="~/js/site.js"></script>
+    <script src="~/js/ajax.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 }

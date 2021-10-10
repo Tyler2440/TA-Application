@@ -94,9 +94,9 @@ body {
 }
 
 /*Makes the border of default tables/table headers/table rows a solid, 1 px black line*/
-.table .def_table, th, td {
+/*.table .def_table, th, td {
     border: 1px solid black;
-}
+}*/
 
 /*Changes the default table's header color, font, and width*/
 .default_table th {

@@ -5,6 +5,10 @@
  * @date - Octobober 8, 2021
  */
 
+$(document).ready(function () {
+    $.noConflict();
+    $('#roletable').DataTable();
+});
 /*
  * Uses sweet alerts when a switch in the roles table is 
  * toggled.
@@ -17,7 +21,7 @@ function toggle_role(userid, role) {
     var URL = "/Admin/OnPost";
     var DATA = { userid: userid, role: role, enable_disable: enabled.checked };
 
-    Swal.fire({ //displays warning message when switch is toggled
+    Swal.fire({
         title: 'Are you sure you want to edit the role?',
         text: "You will be able to revert this later.",
         icon: 'warning',
@@ -26,11 +30,10 @@ function toggle_role(userid, role) {
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes, update it!'
     }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
             $.post(URL, DATA)
                 .fail(function (result) {
-                    Swal.fire({ //displays message that switch wasn't changed
+                    Swal.fire({
                         position: 'center',
                         icon: 'error',
                         title: 'Oops...',
@@ -39,7 +42,7 @@ function toggle_role(userid, role) {
                     enabled.checked = !enabled.checked;
                 })
                 .done(function (result) {
-                    Swal.fire({ //displays message that switch changed
+                    Swal.fire({
                         position: 'center',
                         icon: 'success',
                         title: 'Role successfully changed!',
