@@ -24,7 +24,7 @@ This is the Applicant Overview page that will give an admin a quick look at all 
     double averageGPA = 0;
 
     var applicant = await UserManager.GetUserAsync(User);
-    if (applicant.uID != null)
+    if (applicant.HasApplication)
     {
         hasApplication = true;
     }
@@ -43,7 +43,7 @@ This is the Applicant Overview page that will give an admin a quick look at all 
     }
     else if (SignInManager.IsSignedIn(User) && User.IsInRole("Applicant"))
     {
-        if (hasApplication)
+        if (hasApplication == true)
         {
             <h1></h1>
             <a href="/Applications/Edit/9">Edit your application?</a>

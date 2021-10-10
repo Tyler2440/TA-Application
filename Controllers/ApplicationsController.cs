@@ -97,6 +97,7 @@ namespace TAApplication.Controllers
                 application.UserID = user.Id;
                 _context.Add(application);
                 await _context.SaveChangesAsync();
+                user.HasApplication = true;
                 return RedirectToAction(nameof(Index));
             }
             return View(application);
