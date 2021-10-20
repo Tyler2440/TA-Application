@@ -42,10 +42,14 @@ namespace TAApplication
                 {
                     var context = services.GetRequiredService<TA_DB>();
                     TA_DB_Initializer.Initialize(context);
+
                     UserManager<TAUser> um = services.GetRequiredService<UserManager<TAUser>>();
                     RoleManager<IdentityRole> rm = services.GetRequiredService<RoleManager<IdentityRole>>();
                     var context2 = services.GetRequiredService<TAUsersRolesDB>();
                     await SeedUsersRolesDB.Initialize(rm, um, context2);
+
+                    var context3 = services.GetRequiredService<Courses_DB>();
+                    Courses_DB_Initializer.Initialize(context3);
                 }
                 catch (Exception ex)
                 {
