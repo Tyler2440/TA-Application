@@ -43,9 +43,6 @@ namespace TAApplication
             services.AddDbContext<TA_DB>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("TA_DB")));
 
-            services.AddDbContext<Courses_DB>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("Courses_DB")));
-
             services.AddTransient<IEmailSender, EmailSender>();
             services.Configure<AuthMessageSenderOptions>(Configuration);
 
